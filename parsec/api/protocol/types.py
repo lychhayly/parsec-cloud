@@ -1,7 +1,7 @@
 # Parsec Cloud (https://parsec.cloud) Copyright (c) AGPLv3 2019 Scille SAS
 
 import re
-from typing import Union, TypeVar, Type, NoReturn, Dict
+from typing import Union, TypeVar, Type, NoReturn
 from uuid import uuid4
 from collections import namedtuple
 from email.utils import parseaddr
@@ -133,7 +133,7 @@ class HumanHandle(namedtuple("HumanHandle", "email label")):
 
 
 class HumanHandleField(fields.Tuple):
-    def __init__(self, **kwargs: Dict[object, object]):
+    def __init__(self, **kwargs: object):
         email = fields.String(required=True)
         label = fields.String(required=True)
         super().__init__(email, label, **kwargs)
